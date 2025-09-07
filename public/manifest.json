@@ -1,0 +1,57 @@
+{
+  "manifest_version": 3,
+  "name": "微信读书笔记导出器",
+  "version": "1.0.0",
+  "description": "快速导出微信读书中的个人笔记和标注，支持Markdown、JSON等多种格式",
+  "author": "",
+  
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "微信读书笔记导出器",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  },
+  
+  "background": {
+    "service_worker": "background.js"
+  },
+  
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.weread.qq.com/*",
+        "*://weread.qq.com/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  
+  "permissions": [
+    "activeTab",
+    "storage",
+    "tabs"
+  ],
+  
+  "host_permissions": [
+    "*://*.weread.qq.com/*"
+  ],
+  
+  "web_accessible_resources": [
+    {
+      "resources": ["popup.css"],
+      "matches": ["*://*.weread.qq.com/*"]
+    }
+  ]
+}
