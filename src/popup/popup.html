@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>微信读书笔记导出</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <header class="popup-header">
+      <h1>微信读书笔记导出</h1>
+    </header>
+    
+    <main class="popup-content">
+      <div class="status-section">
+        <div id="status" class="status-info">
+          检测页面中...
+        </div>
+      </div>
+      
+      <div class="export-section">
+        <div class="format-selector">
+          <label for="export-format">导出格式:</label>
+          <select id="export-format" class="format-select">
+            <option value="markdown">Markdown (.md)</option>
+            <option value="json">JSON (.json)</option>
+            <option value="txt">纯文本 (.txt)</option>
+          </select>
+        </div>
+        
+        <button id="export-btn" class="export-button" disabled>
+          导出笔记
+        </button>
+      </div>
+      
+      <div id="progress" class="progress-section" style="display: none;">
+        <div class="progress-text">导出中...</div>
+        <div class="progress-bar">
+          <div class="progress-fill"></div>
+        </div>
+      </div>
+      
+      <div id="result" class="result-section" style="display: none;">
+        <div class="result-text"></div>
+      </div>
+    </main>
+    
+    <footer class="popup-footer">
+      <div class="help-text">
+        请先打开微信读书笔记页面
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
